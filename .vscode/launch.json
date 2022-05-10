@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "command": "npm run start -- --port 8000",
+            "name": "Run PhotoKeeper",
+            "request": "launch",
+            "type": "node-terminal"
+        }
+    ]
+}
