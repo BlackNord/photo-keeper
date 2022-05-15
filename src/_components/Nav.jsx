@@ -25,7 +25,7 @@ function Nav() {
                     {user.role === Role.Admin &&
                         <NavLink to="/admin" className="nav-item nav-link">Administration</NavLink>
                     }
-                    <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
+                    <a onClick={accountService.logout} className="nav-item nav-link">Log Out</a>
                 </div>
             </nav>
             <Route path="/admin" component={AdminNav} />

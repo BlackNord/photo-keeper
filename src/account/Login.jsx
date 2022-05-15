@@ -36,7 +36,7 @@ function Login({ history, location }) {
         <Formik initialValues={init} validationSchema={validation} onSubmit={onSubmit}>
             {({ errors, touched, isSubmitting }) => (
                 <Form>
-                    <h3 className="card-header">Login</h3>
+                    <h3 className="card-header">Log In</h3>
                     <div className="card-body">
                         <div className="form-group">
                             <label>Email:</label>
@@ -52,7 +52,7 @@ function Login({ history, location }) {
                             <div className="form-group col">
                                 <button type="submit" disabled={isSubmitting} className="btn btn-primary">
                                     {isSubmitting && <span className="spinner-border spinner-border-sm mr-1"></span>}
-                                    Login
+                                    Log In
                                 </button>
                                 <Link to="register" className="btn btn-link">Registration</Link>
                             </div>
