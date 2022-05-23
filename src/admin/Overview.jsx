@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 function Overview({ match }) {
     const { path } = match;
@@ -7,8 +6,8 @@ function Overview({ match }) {
     return (
         <div>
             <h1>Administrator's settings</h1>
-            <p>This section can be used only by administrators.</p>
-            <p><Link to={`${path}/users`}>User management</Link></p>
+            <p>This management can be used only by administrators.</p>
+            <p><a class="btn btn-dark" href={`${path}/users`} role="button">User management</a></p>
         </div>
     );
 }

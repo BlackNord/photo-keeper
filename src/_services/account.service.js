@@ -1,6 +1,6 @@
 import { BehaviorSubject } from 'rxjs';
-
 import config from 'config';
+
 import { fetchWrapper, history } from '@/_helpers';
 
 const userSubject = new BehaviorSubject(null);
@@ -41,8 +41,10 @@ function login(email, password) {
 function logout() {
     // revoke token, stop refresh timer, publish null to user subscribers and redirect to login page
     fetchWrapper.post(`${baseUrl}/revoke-token`, {});
+
     stopRefreshTokenTimer();
     userSubject.next(null);
+
     history.push('/account/login');
 }
 

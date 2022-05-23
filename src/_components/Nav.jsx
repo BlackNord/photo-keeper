@@ -22,10 +22,11 @@ function Nav() {
                 <div className="navbar-nav">
                     <NavLink exact to="/" className="nav-item nav-link">Home</NavLink>
                     <NavLink to="/profile" className="nav-item nav-link">Profile</NavLink>
+                    <NavLink to="/photo" className="nav-item nav-link">Photos</NavLink>
                     {user.role === Role.Admin &&
                         <NavLink to="/admin" className="nav-item nav-link">Administration</NavLink>
                     }
-                    <a onClick={accountService.logout} className="nav-item nav-link">Logout</a>
+                    <a onClick={accountService.logout} className="nav-item nav-link">Log out</a>
                 </div>
             </nav>
             <Route path="/admin" component={AdminNav} />

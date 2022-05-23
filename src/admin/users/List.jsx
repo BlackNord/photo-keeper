@@ -19,8 +19,7 @@ function List({ match }) {
             return x;
         }));
 
-        if(confirm('Are you sure to delete your account?'))
-        {
+        if (confirm('Are you sure to delete your account?')) {
             accountService.delete(id).then(() => {
                 setUsers(users => users.filter(x => x.id !== id));
             });
@@ -30,14 +29,14 @@ function List({ match }) {
     return (
         <div>
             <h1>Registered users</h1>
-            <p>User management:</p>
-            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add User</Link>
+            <p>List-manager of registered users:</p>
+            <Link to={`${path}/add`} className="btn btn-sm btn-success mb-2">Add user</Link>
             <table className="table table-striped">
                 <thead>
                     <tr>
-                        <th style={{ width: '30%' }}>Name:</th>
-                        <th style={{ width: '30%' }}>Email:</th>
-                        <th style={{ width: '30%' }}>Role:</th>
+                        <th style={{ width: '30%' }}>User name:</th>
+                        <th style={{ width: '30%' }}>User email:</th>
+                        <th style={{ width: '30%' }}>User role:</th>
                         <th style={{ width: '10%' }}></th>
                     </tr>
                 </thead>

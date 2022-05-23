@@ -1,10 +1,13 @@
 import config from 'config';
+
 import { accountService } from '@/_services';
 
 export const fetchWrapper = {
     get,
     post,
     put,
+    postPhoto,
+    putPhoto,
     delete: _delete
 }
 
@@ -28,11 +31,32 @@ function post(url, body) {
     return fetch(url, requestOptions).then(handleResponse);
 }
 
+function postPhoto(url, body) {
+    const requestOptions = {
+        method: 'POST',
+        headers: authHeader(url),
+        credentials: 'include',
+        body: body
+    };
+
+    return fetch(url, requestOptions).then(handleResponse);
+}
+
 function put(url, body) {
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json', ...authHeader(url) },
         body: JSON.stringify(body)
+    };
+
+    return fetch(url, requestOptions).then(handleResponse);
+}
+
+function putPhoto(url, body) {
+    const requestOptions = {
+        method: 'PUT',
+        headers: authHeader(url),
+        body: body
     };
 
     return fetch(url, requestOptions).then(handleResponse);
@@ -50,7 +74,7 @@ function _delete(url) {
 
 // helpering
 
-function authHeader(url) {
+export function authHeader(url) {
     // return auth header with jwt if user is logged in and request is API url
     const user = accountService.userValue;
     const isLoggedIn = user && user.jwtToken;
