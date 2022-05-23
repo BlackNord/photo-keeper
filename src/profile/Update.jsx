@@ -25,7 +25,7 @@ function Update({ history }) {
             .max(15, 'Maximum 15 characters must be in password'),
         confirmedPassword: Yup.string()
             .when('password', (password, schema) => {
-                if (password) 
+                if (password)
                     return schema.required('Password confirmation field is required');
             })
             .oneOf([Yup.ref('password')], 'Passwords must match')

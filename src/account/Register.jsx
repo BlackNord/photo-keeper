@@ -24,9 +24,9 @@ function Register({ history }) {
             .email('Email is invalid')
             .required('Email field is required'),
         password: Yup.string()
-            .notOneOf([Yup.ref('email')], 'Email and password don\'t must match')
             .min(5, 'At least 5 characters must be in password')
             .max(15, 'Maximum 15 characters must be in password')
+            .notOneOf([Yup.ref('email')], 'Email and password don\'t must match')
             .required('Password field is required'),
         confirmedPassword: Yup.string()
             .oneOf([Yup.ref('password'), null], 'Passwords must match')

@@ -1,8 +1,22 @@
 // global styles
-a { cursor: pointer; }
+a {
+    cursor: pointer;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+        monospace;
+}
 
 .app-container {
-    min-height: 320px;
+    min-height: 720px;
 }
 
 .admin-nav {
@@ -13,9 +27,158 @@ a { cursor: pointer; }
 }
 
 .footer {
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    height:75px;
-    width:100%;
- }
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 75px;
+    width: 100%;
+}
+
+.invalid-field {
+    border-color: #dc3545;
+    color: #dc3545;
+    background-color: #fff;
+}
+
+table div.card {
+    align-items: center;
+    border: none;
+    transition: transform 0.2s;
+}
+
+table div.card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px #333;
+    z-index: 10;
+}
+
+table div.card:hover button.delete-button {
+    visibility: visible;
+}
+
+table div.card-body {
+    text-align: center;
+}
+
+table div.card img {
+    width: 200px;
+    height: 200px;
+    margin: 12px;
+}
+
+table div.card .delete-button {
+    visibility: hidden;
+}
+
+table div.card .description {
+    visibility: hidden;
+}
+
+table div.card:hover span.description {
+    visibility: visible;
+}
+
+table tr td:not(:nth-child(3)) {
+    border-right: 1px solid #00000020;
+
+}
+
+table tr:not(:last-child) td {
+    border-bottom: 1px solid #00000020;
+}
+
+.fig {
+    text-align: center;
+}
+
+.up-button {
+    position: fixed;
+    bottom: 20px;
+    right: 5px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: rgb(27, 32, 40);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 40px;
+    font-size: 17px;
+}
+
+.up-button:focus {
+    outline: none;
+}
+
+.up-button:hover {
+    background-color: rgb(47, 46, 46);
+}
+
+.add-button {
+    margin-left: 175px;
+}
+
+.delete-button {
+    margin-left: 175px;
+}
+
+.without-borders {
+    border-style: hidden;
+}
+
+.form-control-file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.field__file-wrapper {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.field__file-fake {
+    height: 40px;
+    width: calc(100% - 100px);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 15px;
+    border: 1px solid #c7c7c7;
+    border-radius: 3px 0 0 3px;
+    border-right: none;
+}
+
+.field__file-button {
+    width: 100px;
+    height: 40px;
+    background: #29b3cf;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+}
