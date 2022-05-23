@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import { accountService } from '@/_services';
 
@@ -9,13 +8,13 @@ function Details({ match }) {
 
     return (
         <div>
-            <h1>Your profile</h1>
+            <h1>Your profile information</h1>
             <p>
                 <strong>Name: </strong> {user.name} <br />
                 <strong>Surname: </strong> {user.surname}<br />
                 <strong>Email: </strong> {user.email}
             </p>
-            <p><Link to={`${path}/update`}>Update your profile</Link></p>
+            <p><a class="btn btn-dark" href={`${path}/update`} role="button">Update your profile</a></p>
         </div>
     );
 }
