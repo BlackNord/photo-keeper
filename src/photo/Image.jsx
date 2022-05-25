@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { accountService } from '@/_services';
+import { accountService, alertService, colorizationService } from '@/_services';
 
 const defaultImageSrc = '../public/img/image_placeholder.png'
 
@@ -108,6 +108,16 @@ function Image(props) {
         });
     }
 
+    const colorize = () => {
+        colorizationService.colorize(values.id)
+            .then(res => {
+                window.location.reload();  
+            })
+            .catch(error => {
+                alertService.error(error);
+            })
+    }
+
     return (
         <>
             <table className="without-borders">
@@ -118,6 +128,9 @@ function Image(props) {
                         </td>
                         <td className="without-borders">
                             {isAddMode ? <p></p> : <button className="btn btn-dark add-button" onClick={handleFormSubmit}>Add new</button>}
+                        </td>
+                        <td className="without-borders">
+                            {isAddMode ? <p></p> : <button className="btn btn-dark colorize-button" onClick={() => colorize()}>Colorise</button>}
                         </td>
                     </tr>
                 </tbody>
