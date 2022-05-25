@@ -8,6 +8,7 @@ export const fetchWrapper = {
     put,
     postPhoto,
     putPhoto,
+    postColorization,
     delete: _delete
 }
 
@@ -37,6 +38,16 @@ function postPhoto(url, body) {
         headers: authHeader(url),
         credentials: 'include',
         body: body
+    };
+
+    return fetch(url, requestOptions).then(handleResponse);
+}
+
+function postColorization(url) {
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeader(url) },
+        credentials: 'include'
     };
 
     return fetch(url, requestOptions).then(handleResponse);
